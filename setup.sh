@@ -31,7 +31,7 @@ pip3 install -U pip
 pip3 install virtualenv
 virtualenv ~/cekit
 source ~/cekit/bin/activate
-pip3 install cekit odcs docker-py behave --use-feature=2020-resolver
+pip3 install cekit odcs docker-py behave
 STATIC_DEPS=true pip3 install lxml
 # Creates a directory to store the test logs
 if [ ! -d "~/test-results" ]
