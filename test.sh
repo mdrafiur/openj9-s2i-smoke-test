@@ -3,7 +3,7 @@
 # Execute 'setup' script if the directory to store test results has not been created.
 if [ ! -d "~/test-results" ]
 then
-  setup.sh
+  sh setup.sh
 fi
 
 # Read and parse argList file to extract platform/build info
