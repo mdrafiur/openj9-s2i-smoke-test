@@ -24,7 +24,7 @@ run_test() {
 
     SOURCE_IMAGE="registry-proxy.engineering.redhat.com/rh-osbs/openj9-openj9-$JDK_VERSION-rhel$RHEL_VERSION:$BUILD_VERSION"
     TARGET_IMAGE="openj9/openj9-$JDK_VERSION-rhel$RHEL_VERSION:$versions"
-    echo $SOURCE_IMAGE
+    
     docker pull $SOURCE_IMAGE
     docker tag $SOURCE_IMAGE $TARGET_IMAGE
     git clone https://github.com/jboss-container-images/openjdk
