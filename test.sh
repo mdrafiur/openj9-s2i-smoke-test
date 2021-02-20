@@ -27,6 +27,11 @@ run_test() {
     
     docker pull $SOURCE_IMAGE
     docker tag $SOURCE_IMAGE $TARGET_IMAGE
+    # Removes 'openjdk' directory if already exists
+    if [[ -d ./openjdk ]]
+    then
+        rm -rf openjdk
+    fi
     git clone https://github.com/jboss-container-images/openjdk
     mv openjdk ~/openj9-$JDK_VERSION-rhel$RHEL_VERSION
     cd ~
