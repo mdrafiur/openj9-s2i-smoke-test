@@ -12,7 +12,6 @@ def get_url_content(build_url):
     f.write(html)
     f.close()
 
-
 def get_build_version():
     with open('buildURLContent.txt') as fd:
 
@@ -29,7 +28,6 @@ def get_build_version():
                 buildID = bid.split('<')[0]
                 print(buildID[-6:], file=open('result.txt', 'w'))
 
-
 def main():
     parser = argparse.ArgumentParser(description='Arguments get parsed via --commands')
     parser.add_argument("-url", "--build_url", required=True, help="brew task url")
@@ -38,7 +36,6 @@ def main():
 
     get_url_content(arg_list[0])
     get_build_version()
-
 
 if __name__ == '__main__':
     main()
