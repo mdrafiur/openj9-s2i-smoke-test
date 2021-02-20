@@ -1,6 +1,6 @@
 #!/bin/sh
 yes | yum install -y gcc libffi-devel krb5-devel openssl-devel
-yes | yum install device-mapper-devel wget git python3 python3-devel
+yes | yum install device-mapper-devel wget git python3 python3-devel rust cargo
 wget https://rpmfind.net/linux/fedora-secondary/releases/33/Everything/s390x/os/Packages/b/btrfs-progs-5.7-5.fc33.s390x.rpm
 rpm -i btrfs-progs-5.7-5.fc33.s390x.rpm
 wget https://rpmfind.net/linux/fedora-secondary/releases/33/Everything/s390x/os/Packages/l/libbtrfs-5.7-5.fc33.s390x.rpm
