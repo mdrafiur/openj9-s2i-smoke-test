@@ -19,20 +19,20 @@ parse_args() {
 
 # Runs the test
 run_test() {
-        setup_environment
-        parse_args
+    setup_environment
+    parse_args
 
-        SOURCE_IMAGE="registry-proxy.engineering.redhat.com/rh-osbs/openj9-openj9-$JDK_VERSION-rhel$RHEL_VERSION:$BUILD_VERSION"
-        TARGET_IMAGE="openj9/openj9-$JDK_VERSION-rhel$RHEL_VERSION:$versions"
-        echo $SOURCE_IMAGE
-        docker pull $SOURCE_IMAGE
-        docker tag $SOURCE_IMAGE $TARGET_IMAGE
-        git clone https://github.com/jboss-container-images/openjdk
-        mv openjdk ~/openj9-$JDK_VERSION-rhel$RHEL_VERSION
-        cd ~
-        source cekit/bin/activate
-        cd ~/openj9-$JDK_VERSION-rhel$RHEL_VERSION
-        nohup cekit --descriptor ./openj9-$JDK_VERSION-rhel$RHEL_VERSION.yaml test behave &> ~/test-results/smokeTest-$JDK_VERSION-rhel$RHEL_VERSION.log
+    SOURCE_IMAGE="registry-proxy.engineering.redhat.com/rh-osbs/openj9-openj9-$JDK_VERSION-rhel$RHEL_VERSION:$BUILD_VERSION"
+    TARGET_IMAGE="openj9/openj9-$JDK_VERSION-rhel$RHEL_VERSION:$versions"
+    echo $SOURCE_IMAGE
+    docker pull $SOURCE_IMAGE
+    docker tag $SOURCE_IMAGE $TARGET_IMAGE
+    git clone https://github.com/jboss-container-images/openjdk
+    mv openjdk ~/openj9-$JDK_VERSION-rhel$RHEL_VERSION
+    cd ~
+    source cekit/bin/activate
+    cd ~/openj9-$JDK_VERSION-rhel$RHEL_VERSION
+    nohup cekit --descriptor ./openj9-$JDK_VERSION-rhel$RHEL_VERSION.yaml test behave &> ~/test-results/smokeTest-$JDK_VERSION-rhel$RHEL_VERSION.log
 }
 
 run_test
