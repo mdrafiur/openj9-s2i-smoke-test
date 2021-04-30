@@ -32,7 +32,8 @@ run_test() {
     then
         rm -rf openjdk
     fi
-    git clone https://github.com/jboss-container-images/openjdk
+    # git clone https://github.com/jboss-container-images/openjdk
+    git clone --branch openj9-0.26.0 https://github.com/mdrafiur/openjdk.git
     mv openjdk ~/openj9-$JDK_VERSION-rhel$RHEL_VERSION
     cd ~
     source cekit/bin/activate
