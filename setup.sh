@@ -20,13 +20,19 @@ cat >> /etc/docker/daemon.json << EOT
 EOT
 systemctl restart docker
 yes | yum install golang
-go get github.com/openshift/source-to-image/cmd/s2i
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-cd ${GOPATH}/src/github.com/openshift/source-to-image
-hack/build-go.sh
-yes | cp _output/local/bin/linux/s390x/s2i $GOPATH/bin
-cp $GOPATH/bin/s2i /usr/bin/
+# go get github.com/openshift/source-to-image/cmd/s2i
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+# cd ${GOPATH}/src/github.com/openshift/source-to-image
+# hack/build-go.sh
+# yes | cp _output/local/bin/linux/s390x/s2i $GOPATH/bin
+# cp $GOPATH/bin/s2i /usr/bin/
+# Install s2i from source
+mkdir /tmp/s2i/ && cd /tmp/s2i/
+wget https://github.com/openshift/source-to-image/releases/download/v1.3.1/source-to-image-v1.3.1-a5a77147-linux-s390x.tar.gz
+tar xvf source-to-image*.gz
+sudo mv s2i /usr/local/bin
+rm -rf /tmp/s2i/
 pip3 install -U pip
 pip3 install virtualenv
 virtualenv ~/cekit
